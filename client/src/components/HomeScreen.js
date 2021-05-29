@@ -2,6 +2,7 @@ import React from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import './HomeScreen.css'
 import { NavLink } from 'react-router-dom';
+import { Employee } from './employee/Employee';
 
 const { Header, Content, Footer } = Layout;
 
@@ -20,7 +21,7 @@ export const HomeScreen = () => {
                     <Breadcrumb.Item>Inicio</Breadcrumb.Item>
                     <Breadcrumb.Item>Consulta de empleados</Breadcrumb.Item>
                 </Breadcrumb>
-                <div className="site-layout-content">Content</div>
+                <Employee />
             </Content>
             <Footer style={{ textAlign: 'center' }}>©2021 Created by hruiz</Footer>
         </Layout>

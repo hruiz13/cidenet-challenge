@@ -41,10 +41,12 @@ const Empleados = sequelize.define('empleados', {
     dni: {
         type: Sequelize.STRING(20),
         allowNull: false,
+        unique: true,
     },
     email: {
         type: Sequelize.STRING(300),
         allowNull: false,
+        unique: true,
     },
     fecha_ingreso: {
         type: Sequelize.DATE,

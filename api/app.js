@@ -5,7 +5,7 @@ const { conn } = require('./database/db.js');
 const server = new Server();
 
 //sincronizamos la db
-conn.sync({ force: true })
+conn.sync({ force: false })
     .then(function () {
         //iniciamos el server
         server.listen();
