@@ -67,13 +67,70 @@ export const loadUsers = (data) => {
 }
 
 
+export const editUser = (data) => {
+    return async (dispatch) => {
+        //dispatch(isLoading())
+        try {
+            const resp = await fetch(`${baseUrl}/users/${data.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            const body = await resp.json();
+            if (body.data) {
+                dispatch(userEdit(body.data))
+            } else {
+                openNotificationWithIcon('error', 'Ocurrio un error', 'Intente nuevamente mas tarde, si persiste el error, contacte a soporte.')
+            }
+        } catch (err) {
+            console.log(err)
+        }
+        //dispatch(isLoading())
+    }
+}
+
+export const deletUser = (id) => {
+    return async (dispatch) => {
+        //dispatch(isLoading())
+        try {
+            const resp = await fetch(`${baseUrl}/users/${id}`, {
+                method: 'DELETE'
+            });
+            const body = await resp.json();
+            if (body.id) {
+                dispatch(userDelete(body.id))
+            } else {
+                openNotificationWithIcon('error', 'Ocurrio un error', 'Intente nuevamente mas tarde, si persiste el error, contacte a soporte.')
+            }
+        } catch (err) {
+            console.log(err)
+        }
+        //dispatch(isLoading())
+    }
+}
+
+
+
 
 const getUsers = (payload) => ({
     type: types.usersLoad,
     payload
 })
+
+const userEdit = (payload) => ({
+    type: types.userEdit,
+    payload
+})
+
 const saveUser = (payload) => ({
     type: types.usersCreate,
+    payload
+})
+
+const userDelete = (payload) => ({
+    type: types.userDelete,
     payload
 })
 
