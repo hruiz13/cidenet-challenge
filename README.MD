@@ -1,7 +1,9 @@
 # CHALLENGE CIDENET
 
 - Github del codigo fuente: https://github.com/hruiz13/cidenet-challenge
-- Pagina de la demo: 
+- Pagina de la demo(deploy): https://cidenet-challenge.vercel.app/
+note: El backend tarda en cargar (Heroku)
+- Video de la demo: https://youtu.be/Cm7-l2eRscw
 
 ## Instalacion
 - Cuenta con 2 carpetas, una para front (client), y una para back (api).
